@@ -1,0 +1,48 @@
+[2025-07-18T04:37:56.594+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: batch_etl_pyspark.run_pyspark_etl manual__2025-07-18T04:32:43.651052+00:00 [queued]>
+[2025-07-18T04:37:56.658+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: batch_etl_pyspark.run_pyspark_etl manual__2025-07-18T04:32:43.651052+00:00 [queued]>
+[2025-07-18T04:37:56.659+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-18T04:37:56.666+0000] {taskinstance.py:1280} INFO - Starting attempt 2 of 2
+[2025-07-18T04:37:56.670+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-18T04:37:56.781+0000] {taskinstance.py:1300} INFO - Executing <Task(BashOperator): run_pyspark_etl> on 2025-07-18 04:32:43.651052+00:00
+[2025-07-18T04:37:56.806+0000] {standard_task_runner.py:55} INFO - Started process 274 to run task
+[2025-07-18T04:37:56.828+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'batch_etl_pyspark', 'run_pyspark_etl', 'manual__2025-07-18T04:32:43.651052+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/batch_etl_dag.py', '--cfg-path', '/tmp/tmpwkyiuji6']
+[2025-07-18T04:37:56.839+0000] {standard_task_runner.py:83} INFO - Job 12: Subtask run_pyspark_etl
+[2025-07-18T04:37:57.487+0000] {task_command.py:388} INFO - Running <TaskInstance: batch_etl_pyspark.run_pyspark_etl manual__2025-07-18T04:32:43.651052+00:00 [running]> on host e9b356fbebf4
+[2025-07-18T04:37:57.906+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=batch_etl_pyspark
+AIRFLOW_CTX_TASK_ID=run_pyspark_etl
+AIRFLOW_CTX_EXECUTION_DATE=2025-07-18T04:32:43.651052+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-07-18T04:32:43.651052+00:00
+[2025-07-18T04:37:57.910+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2025-07-18T04:37:57.914+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec bp22_spark spark-submit /opt/bitnami/spark/scripts/batch_etl_day.py']
+[2025-07-18T04:37:57.963+0000] {subprocess.py:86} INFO - Output:
+[2025-07-18T04:38:20.551+0000] {subprocess.py:93} INFO - Exception in thread "main" java.lang.IllegalArgumentException: basedir must be absolute: ?/.ivy2/local
+[2025-07-18T04:38:20.562+0000] {subprocess.py:93} INFO - 	at org.apache.ivy.util.Checks.checkAbsolute(Checks.java:48)
+[2025-07-18T04:38:20.564+0000] {subprocess.py:93} INFO - 	at org.apache.ivy.plugins.repository.file.FileRepository.setBaseDir(FileRepository.java:137)
+[2025-07-18T04:38:20.568+0000] {subprocess.py:93} INFO - 	at org.apache.ivy.plugins.repository.file.FileRepository.<init>(FileRepository.java:44)
+[2025-07-18T04:38:20.577+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmitUtils$.createRepoResolvers(SparkSubmit.scala:1274)
+[2025-07-18T04:38:20.580+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmitUtils$.buildIvySettings(SparkSubmit.scala:1381)
+[2025-07-18T04:38:20.584+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.DependencyUtils$.resolveMavenDependencies(DependencyUtils.scala:182)
+[2025-07-18T04:38:20.586+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:339)
+[2025-07-18T04:38:20.587+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:969)
+[2025-07-18T04:38:20.592+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:199)
+[2025-07-18T04:38:20.594+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:222)
+[2025-07-18T04:38:20.609+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+[2025-07-18T04:38:20.618+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1125)
+[2025-07-18T04:38:20.620+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1134)
+[2025-07-18T04:38:20.621+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+[2025-07-18T04:38:20.779+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-07-18T04:38:20.930+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f"Bash command failed. The command returned a non-zero exit code {result.exit_code}."
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-07-18T04:38:20.969+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=batch_etl_pyspark, task_id=run_pyspark_etl, execution_date=20250718T043243, start_date=20250718T043756, end_date=20250718T043820
+[2025-07-18T04:38:21.100+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 12 for task run_pyspark_etl (Bash command failed. The command returned a non-zero exit code 1.; 274)
+[2025-07-18T04:38:21.202+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2025-07-18T04:38:21.381+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,5 @@
+FROM apache/airflow:2.5.1
+
+USER airflow
+# Install PySpark menggunakan user 'airflow' (bukan root)
+RUN pip install --no-cache-dir pyspark==3.4.4

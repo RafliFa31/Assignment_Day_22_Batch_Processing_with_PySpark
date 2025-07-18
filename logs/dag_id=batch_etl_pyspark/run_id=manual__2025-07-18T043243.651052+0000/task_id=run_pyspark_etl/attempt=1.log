@@ -1,0 +1,34 @@
+[2025-07-18T04:32:46.917+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: batch_etl_pyspark.run_pyspark_etl manual__2025-07-18T04:32:43.651052+00:00 [queued]>
+[2025-07-18T04:32:47.125+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: batch_etl_pyspark.run_pyspark_etl manual__2025-07-18T04:32:43.651052+00:00 [queued]>
+[2025-07-18T04:32:47.131+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-18T04:32:47.145+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 2
+[2025-07-18T04:32:47.160+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-18T04:32:47.632+0000] {taskinstance.py:1300} INFO - Executing <Task(BashOperator): run_pyspark_etl> on 2025-07-18 04:32:43.651052+00:00
+[2025-07-18T04:32:47.730+0000] {standard_task_runner.py:55} INFO - Started process 201 to run task
+[2025-07-18T04:32:47.796+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'batch_etl_pyspark', 'run_pyspark_etl', 'manual__2025-07-18T04:32:43.651052+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/batch_etl_dag.py', '--cfg-path', '/tmp/tmpz5nfkwv7']
+[2025-07-18T04:32:47.836+0000] {standard_task_runner.py:83} INFO - Job 10: Subtask run_pyspark_etl
+[2025-07-18T04:32:49.336+0000] {task_command.py:388} INFO - Running <TaskInstance: batch_etl_pyspark.run_pyspark_etl manual__2025-07-18T04:32:43.651052+00:00 [running]> on host e9b356fbebf4
+[2025-07-18T04:32:51.269+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=batch_etl_pyspark
+AIRFLOW_CTX_TASK_ID=run_pyspark_etl
+AIRFLOW_CTX_EXECUTION_DATE=2025-07-18T04:32:43.651052+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-07-18T04:32:43.651052+00:00
+[2025-07-18T04:32:51.276+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2025-07-18T04:32:51.293+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec spark spark-submit /opt/bitnami/spark/scripts/batch_etl_day.py']
+[2025-07-18T04:32:51.356+0000] {subprocess.py:86} INFO - Output:
+[2025-07-18T04:32:51.577+0000] {subprocess.py:93} INFO - Error: No such container: spark
+[2025-07-18T04:32:51.589+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-07-18T04:32:51.666+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f"Bash command failed. The command returned a non-zero exit code {result.exit_code}."
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-07-18T04:32:51.694+0000] {taskinstance.py:1323} INFO - Marking task as UP_FOR_RETRY. dag_id=batch_etl_pyspark, task_id=run_pyspark_etl, execution_date=20250718T043243, start_date=20250718T043246, end_date=20250718T043251
+[2025-07-18T04:32:51.785+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 10 for task run_pyspark_etl (Bash command failed. The command returned a non-zero exit code 1.; 201)
+[2025-07-18T04:32:51.851+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2025-07-18T04:32:51.948+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
